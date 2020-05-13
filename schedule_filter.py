@@ -11,13 +11,12 @@ def nth_day_yearly(n, job_func, *args, **kwargs):
     the day of the year, where the function works
 
     example:
-        schedule.every().day.do(nth_week(1, job_func)) # do job_func() on first day of the month
-        schedule.every().day.do(nth_week(-1, job_func)) # do job_func() on last day of the month
+        schedule.every().day.do(nth_day_yearly(1, job_func)) # do job_func() on first day of the year
+        schedule.every().day.do(nth_day_yearly(-1, job_func)) # do job_func() on last day of the year
 
 
-    :param n: number of day, can be 1 to 28 or
-                                   -1 to -28
-              up to 28, because february, the shortest month, has 28 days
+    :param n: number of day, can be 1 to 365, if leap year 366 or
+                                   -1 to -365, if leap year -366
     :param job_func: function
     :param args: list of positional arguments
     :param kwargs: dict of keyworded arguments
@@ -50,8 +49,8 @@ def nth_month_yearly(n, job_func, *args, **kwargs):
     the month, where the function works
 
     example:
-        schedule.every().monday.do(nth_month(1, job_func)) # do job_func() on every monday of the month=1 (january)
-        schedule.every().day.do(nth_month(-1, job_func)) # do job_func() on every day of the month=12 (december)
+        schedule.every().monday.do(nth_month_yearly(1, job_func)) # do job_func() on every monday of the month=1 (january)
+        schedule.every().day.do(nth_month_yearly(-1, job_func)) # do job_func() on every day of the month=12 (december)
 
 
     :param n: number of day, can be 1 to 28 or
@@ -74,7 +73,6 @@ def nth_month_yearly(n, job_func, *args, **kwargs):
         return _execute(job_func, args, kwargs)
     else:
         return  # wrong day
-
 
 
 def nth_day_monthly(n, job_func, *args, **kwargs):
@@ -110,7 +108,7 @@ def nth_day_monthly(n, job_func, *args, **kwargs):
        n < 0 and day_of_month+1 == num_days_of_month - n:
         return _execute(job_func, args, kwargs)
     else:
-        return # wrong day
+        return  # wrong day
 
 
 def nth_week_monthly(n, job_func, *args, **kwargs):
