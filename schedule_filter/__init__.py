@@ -163,6 +163,11 @@ def nth_week_monthly(n, job_func, *args, **kwargs):
             return  # wrong week
 
 
+def nth_year_ever(n, job_func, *args, **kwargs):
+    if datetime.datetime.today().year == n:
+        return _execute(job_func, args, kwargs)
+
+
 def _execute(job_func, args, kwargs):
     s_job_func = functools.partial(job_func, *args, **kwargs)
     try:

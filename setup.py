@@ -2,6 +2,7 @@
 Publish a new version:
 $ git tag X.Y.Z -m "Release X.Y.Z"
 $ git push --tags
+$ # edit setup.py for new version
 $ pip install --upgrade twine wheel
 $ python setup.py sdist bdist_wheel --universal
 $ twine upload dist/*
@@ -11,7 +12,7 @@ from setuptools import setup
 with open("README.md", "r") as fh:
     long_description = fh.read()
 
-VERSION = '0.1.0'
+VERSION = '0.2.0'
 DOWNLOAD_URL = (
     'https://github.com/ruru4143/schedule_filter/' + VERSION
 )
