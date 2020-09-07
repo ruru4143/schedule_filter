@@ -99,8 +99,8 @@ def nth_day_monthly(n, job_func, *args, **kwargs):
                                                datetime.datetime.today().month)
 
     assert n != 0, "The nth day cannot be 0 (Zero)"
-    assert n < 28, f"The nth day cannot be bigger than 28"
-    assert n > -28, f"The nth day cannot be smaller than -28"
+    assert n < 28, "The nth day cannot be bigger than 28"
+    assert n > -28, "The nth day cannot be smaller than -28"
 
     day_of_month = datetime.datetime.today().day
 
